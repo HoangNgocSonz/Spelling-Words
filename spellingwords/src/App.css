@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+.background{
+  height: 680px;
+  width: 1205px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top:20px;
+  box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
+  opacity:0.1;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background2{
+  height: 680px;
+  width: 1205px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top:20px;
+  box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
+  opacity:1;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.haiLy{
+  width: 140px;
+  height: auto;
+  right:0;
+  bottom:0;
+  position: absolute;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cat-wrapper{
+  height:350px;
 }
-
-.App-link {
-  color: #61dafb;
+.cat{
+  width:168px;
+  margin-left: 510px;
+  margin-top:60px;
+  margin-bottom: 0px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cabinet{
+  width: 488px;
+  height: 150px;
+  margin-left: 342px;
+}
+.target{
+  display: inline-block;
+  width: 200px;
+  height: 120px;
+}
+.a-word{
+  width:80px;
+  margin-top:-105px;
+}
+.t-word{
+  width:60px;
+  margin-left: 60px;
+  margin-top:-125px;
+}
+.animation{
+  width:600px;
+  height: 100px;
+  background-color: hotpink;
+}
+.animation-child{
+  width:30px;
+  height: 30px;
+  background:greenyellow;
+  transition: color 0.6s;
+}
+.cat-animation{
+  width:168px;
+  margin-left: 510px;
+  margin-top:60px;
+  margin-bottom: -20px;
+  animation-name: example;
+  animation-duration: 0.4s;
+}
+@keyframes example {
+  0%   {width:168px;}
+  50%  {width:180px; margin-left:506px; margin-top:51px;}
+  100% {width:168px;}
+}
+.start{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top:-400px;
+  box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
+  border-radius: 100px;
+}
+.start2{
+  display: none;
+}
+.carpet{
+  width: 700px;
+  height: 110px;
+  margin-left: 240px;
+  margin-top:10px;
+}
+.c-move{
+  width: 70px;
+  margin-left: 25px;
+  margin-top:10px;
+  display: none;
+}
+.c-move2{
+  display: block;
+}
+.d-animation{
+  width: 65px;
+  margin-left: 60px;
+  display: none;
+}
+.d-animation2{
+  display: block;
+}
+.f-animation{
+  width: 65px; 
+  margin-left: 140px;
+  display: none;
+}
+.f-animation2{
+  display: block;
 }
