@@ -50,41 +50,31 @@ export default class App extends Component{
     this.fSound.play();
   }
 
-  allowDrop(ev) {
-    ev.preventDefault();
+  drag =(e)=> {
+    e.dataTransfer.setData("text", e.target.id);
   }
-  
-  onDragOver = (e) => {
+  noAllowDrop=(e)=>{
     e.stopPropagation();
+  }
+  allowDrop =(e)=>{
     e.preventDefault();
-    }
-
-  onDragEnter = (e) => {
-    e.stopPropagation();
+  }
+  drop =(e)=> {
+    e.preventDefault();
+    var data = e.dataTransfer.getData("text");
+    e.target.appendChild(document.getElementById(data));
   }
 
-  onFileDrop = (e) => {
-    e.stopPropagation();
-
-    console.log("onFileDrop");
-    alert("dropped")
-  }
   render(){
     return (
       <div>
-        <div>
-        onDragEnter={this.onDragEnter}
-        onDragOver={this.onDragOver}
-        onDrop={this.onFileDrop}
-        Drag and drop file here
-      </div>
         <div className="background" id="background" style={{ backgroundImage: `url(${require("./image/rsz_background.png")})` }} >
           <img src={require('./image/spell3.png')} className="haiLy" />
           <div className="cat-wrapper">
             <img src={require("./image/cat.png")} className="cat" id="cat" onClick={() => this.handleClick()}></img>
           </div>
           <div className="cabinet">
-            <div className="target" onDrop={this.onFileDrop()}>
+            <div className="target" id="target" onDrop={this.drop} onDragOver={this.allowDrop}>
             
             </div>
             <img src={require("./image/a.png")} className="a-word"></img>
@@ -93,7 +83,7 @@ export default class App extends Component{
           <div className="carpet">
             <Row>
               <Col>
-                <img src={require("./image/c.png")} className="c-move" id="c-move" onClick={()=> this.cSoundPlay()} onDragEnter={this.onDragEnter()} onDragOver={this.onDragOver()}></img>
+                <img src={require("./image/c.png")} className="c-move" id="c-move" onClick={()=> this.cSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
               </Col>
               <Col>
                 <img src={require("./image/d.png")} className="d-animation" id="d-animation" onClick={() => this.dSoundPlay()}></img>
