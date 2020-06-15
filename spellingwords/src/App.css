@@ -120,8 +120,21 @@
 }
 .f-animation2{
   display: block;
+  animation-name: f-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes f-animation {
+  0%   {}
+  50%  {
+    margin-left:144px;
+  }
+  100% {}
 }
 .target .c-move2{
   margin-left: 60px;
   margin-top: 23px;
+}
+#ddd{
+  display: none;
 }

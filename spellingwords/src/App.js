@@ -40,6 +40,9 @@ export default class App extends Component{
     this.catAudio.play();
   }
 // các hàm phát âm 
+  spellCatPlay(){
+    this.spellCat.play();
+  }
   cSoundPlay(){
     this.cSound.play();
   }
@@ -69,7 +72,7 @@ export default class App extends Component{
     return (
       <div>
         <div className="background" id="background" style={{ backgroundImage: `url(${require("./image/rsz_background.png")})` }} >
-          <img src={require('./image/spell3.png')} className="haiLy" />
+          <img src={require('./image/spell3.png')} className="haiLy" onClick={()=>this.spellCatPlay()}/>
           <div className="cat-wrapper">
             <img src={require("./image/cat.png")} className="cat" id="cat" onClick={() => this.handleClick()}></img>
           </div>
@@ -81,7 +84,7 @@ export default class App extends Component{
             <img src={require("./image/t.png")} className="t-word"></img>
           </div>
           <div className="carpet">
-            <Row>
+            <Row id="ddd">
               <Col>
                 <img src={require("./image/c.png")} className="c-move" id="c-move" onClick={()=> this.cSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
               </Col>
