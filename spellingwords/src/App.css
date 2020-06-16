@@ -33,6 +33,23 @@
   margin-left: 996px;
   position: absolute;
 }
+.haiLy3{
+  width: 217px;
+  height: auto;
+  margin-top:450px;
+  margin-left: 989px;
+  position: absolute;
+  display: none;
+}
+.haiLy4{
+  width: 203px;
+  height: auto;
+  margin-top:448px;
+  margin-left: 1003px;
+  position: absolute;
+  display: none;
+}
+
 .cat-wrapper{
   height:350px;
 }
@@ -124,7 +141,7 @@
   }
   50% {
     margin-left: 20px;
-    margin-top: -6px;
+    margin-top: -3px;
   }
   75% {
     margin-left: 37px;
