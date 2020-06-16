@@ -24,6 +24,14 @@
   right:0;
   bottom:0;
   position: absolute;
+  display: none;
+}
+.haiLy2{
+  width: 217px;
+  height: auto;
+  margin-top:450px;
+  margin-left: 996px;
+  position: absolute;
 }
 .cat-wrapper{
   height:350px;
@@ -104,6 +112,25 @@
 }
 .c-move2{
   display: block;
+  animation-name: c-animation;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes c-animation {
+  0%   {}
+  25% {
+    margin-left: 30px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 20px;
+    margin-top: -6px;
+  }
+  75% {
+    margin-left: 37px;
+    margin-top: 5px;
+  }
+  100% {}
 }
 .d-animation{
   width: 65px;
@@ -112,6 +139,25 @@
 }
 .d-animation2{
   display: block;
+  animation-name: d-animation;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes d-animation {
+  0%   {}
+  25% {
+    margin-left: 65px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 72px;
+    margin-top: -2px;
+  }
+  75% {
+    margin-left: 69px;
+    margin-top: 1px;
+  }
+  100% {}
 }
 .f-animation{
   width: 65px; 
@@ -121,20 +167,27 @@
 .f-animation2{
   display: block;
   animation-name: f-animation;
-  animation-duration: 2s;
+  animation-duration: 6s;
   animation-iteration-count: infinite;
 }
 @keyframes f-animation {
   0%   {}
-  50%  {
-    margin-left:144px;
+  25% {
+    margin-left: 143px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 138px;
+    margin-top: -2px;
+  }
+  75% {
+    margin-left: 144px;
+    margin-top: 1px;
   }
   100% {}
 }
 .target .c-move2{
   margin-left: 60px;
   margin-top: 23px;
-}
-#ddd{
-  display: none;
+  animation-name: x;
 }

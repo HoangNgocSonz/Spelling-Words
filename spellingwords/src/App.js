@@ -28,6 +28,19 @@ export default class App extends Component{
     }, 300);
     setTimeout(function(){
       this.spellCat.play();
+      //làm hiệu ứng mấp máy môi
+      var haiLy = document.querySelector('#haiLy');
+      var haiLy2 = document.querySelector('#haiLy2');
+      for (let i = 1; i <= 23; i++) {
+        setTimeout(function(){
+          haiLy.style.display="block";
+          haiLy2.style.display="none";
+          setTimeout(function(){
+          haiLy.style.display="none";
+          haiLy2.style.display="block";
+          }, 170*i);
+        }, 170*i);
+      }
     }.bind(this),
     400 );
   }
@@ -42,7 +55,20 @@ export default class App extends Component{
 // các hàm phát âm 
   spellCatPlay(){
     this.spellCat.play();
+    var haiLy = document.querySelector('#haiLy');
+    var haiLy2 = document.querySelector('#haiLy2');
+    for (let i = 1; i <= 23; i++) {
+      setTimeout(function(){
+        haiLy.style.display="block";
+        haiLy2.style.display="none";
+        setTimeout(function(){
+        haiLy.style.display="none";
+        haiLy2.style.display="block";
+        }, 170*i);
+      }, 170*i);
+    }
   }
+
   cSoundPlay(){
     this.cSound.play();
   }
@@ -72,7 +98,8 @@ export default class App extends Component{
     return (
       <div>
         <div className="background" id="background" style={{ backgroundImage: `url(${require("./image/rsz_background.png")})` }} >
-          <img src={require('./image/spell3.png')} className="haiLy" onClick={()=>this.spellCatPlay()}/>
+          <img src={require('./image/spell3.png')} className="haiLy" id="haiLy" onClick={()=>this.spellCatPlay()}/>
+          <img src={require('./image/spell.png')} className="haiLy2" id="haiLy2" onClick={()=>this.spellCatPlay()}/>
           <div className="cat-wrapper">
             <img src={require("./image/cat.png")} className="cat" id="cat" onClick={() => this.handleClick()}></img>
           </div>
@@ -84,7 +111,7 @@ export default class App extends Component{
             <img src={require("./image/t.png")} className="t-word"></img>
           </div>
           <div className="carpet">
-            <Row id="ddd">
+            <Row >
               <Col>
                 <img src={require("./image/c.png")} className="c-move" id="c-move" onClick={()=> this.cSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
               </Col>
