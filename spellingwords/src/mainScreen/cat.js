@@ -14,11 +14,10 @@ export default class Cat extends Component{
   }
   startGame(){
     this.props.startGameMain();
+    document.getElementById("fadeCat").style.opacity=1;
     document.getElementById("start").classList.add("start2");
-
     setTimeout(function(){
       document.getElementById("c-move").classList.toggle("c-move2");
-      console.log(document.getElementById("c-move"))
     }, 100);
     setTimeout(function(){
       document.getElementById("d-animation").classList.toggle("d-animation2");
@@ -37,27 +36,7 @@ export default class Cat extends Component{
     },400);
     this.catAudio.play();
   }
-// các hàm phát âm 
-  // spellCatPlay(){
-  //   this.spellCat.play();
-  //   this.props.spellCatMain();
-  //   console.log("vvv")
-
-  //   var haiLy = document.querySelector('#haiLy');
-  //   var haiLy2 = document.querySelector('#haiLy2');
-  //   for (let i = 1; i <= 23; i++) {
-  //     setTimeout(function(){
-  //       haiLy.style.display="block";
-  //       haiLy2.style.display="none";
-  //       if(i<=13){
-  //         setTimeout(function(){
-  //           haiLy.style.display="none";
-  //           haiLy2.style.display="block";
-  //           }, 170*i);
-  //       }
-  //     }, 170*i);
-  //   }
-  // }
+  //các hàm phát âm
 
   cSoundPlay(){
     this.cSound.play();
@@ -69,6 +48,7 @@ export default class Cat extends Component{
     this.fSound.play();
   }
 
+  //các hàm kéo thả
   drag =(e)=> {
     e.dataTransfer.setData("text", e.target.id);
     var data = e.dataTransfer.getData("text");
@@ -95,53 +75,16 @@ export default class Cat extends Component{
       e.target.appendChild(document.getElementById(data));
     }else{
       // am thanh phat khi chon sai dap an
-      // if(wrongSound==0){
-      //   this.opss.play();
-      //   wrongSound=1;
-      // }else if(wrongSound==1){
-      //   this.hmm.play();
-      //   wrongSound=2;
-      // }
-      // else{
-      //   this.try_again.play();
-      //   wrongSound=0;
-      // }
       this.props.soundWhenSelectWrong();
       // đổi hình ảnh khi chọn sai đáp án
       this.props.changeHaily();
-      // var haiLy = document.querySelector('#haiLy');
-      // var haiLy2 = document.querySelector('#haiLy2');
-      // var haiLy3 = document.querySelector('#haiLy3');
-      // var haiLy4 = document.querySelector('#haiLy4');
-      // var randomx = Math.floor(Math.random() * 6);
-      // haiLy.style.display="none";
-      // haiLy2.style.display="none";
-      // haiLy3.style.display="none";
-      // haiLy4.style.display="none";
-      // if(randomx<=2){
-      //   haiLy3.style.display="block";
-      //   setTimeout(function(){
-      //     haiLy3.style.display="none";
-      //     haiLy2.style.display="block";
-      //   }, 1500);
-      // }else{
-      //   haiLy4.style.display="block";
-      //   setTimeout(function(){
-      //     haiLy4.style.display="none";
-      //     haiLy2.style.display="block";
-      //   }, 1500);
-      // }
     }
   }
 
   render(){
     return (
       <div >
-        {/* <div className="background" id="background" style={{ backgroundImage: `url(${require("../image/rsz_background.png")})` }} >
-          <img src={require('../image/spell3.png')} className="haiLy" id="haiLy" onClick={()=>this.spellCatPlay()}/>
-          <img src={require('../image/spell.png')} className="haiLy2" id="haiLy2" onClick={()=>this.spellCatPlay()}/>
-          <img src={require('../image/spell4.png')} className="haiLy3" id="haiLy3" onClick={()=>this.spellCatPlay()}/>
-          <img src={require('../image/spell5.png')} className="haiLy4" id="haiLy4" onClick={()=>this.spellCatPlay()}/> */}
+        <div className="fadeCat" id="fadeCat">
           <div className="cat-wrapper">
             <img src={require("../image/cat.png")} className="cat" id="cat" onClick={() => this.handleClick()}></img>
           </div>
@@ -164,7 +107,7 @@ export default class Cat extends Component{
               </Col>
             </Row>
           </div>
-        {/* </div> */}
+        </div>
         <img className="start" id="start" src={require("../image/start.png")} onClick={()=> this.startGame()}></img>
       </div>
       

@@ -6,7 +6,21 @@
   transform: translate(-50%);
   margin-top:20px;
   box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
-  opacity:0.1;
+}
+.background2{
+  height: 680px;
+  width: 1205px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top:20px;
+  box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
+}
+.fade{
+  opacity:0.0;
+}
+.fadeCat{
+  opacity:0.0;
 }
 .background2{
   height: 680px;
@@ -103,13 +117,12 @@
   100% {width:168px;}
 }
 .start{
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 350px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  margin-top:-400px;
-  box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
+  margin-top:-500px;
   border-radius: 100px;
 }
 .start2{
