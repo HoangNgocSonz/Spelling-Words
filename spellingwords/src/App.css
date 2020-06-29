@@ -69,10 +69,37 @@
 }
 .cat{
   width:168px;
-  margin-left: 510px;
+  margin-left: 500px;
   margin-top:60px;
   margin-bottom: 0px;
 }
+.cat-animation{
+  width:168px;
+  margin-left: 500px;
+  margin-top:60px;
+  margin-bottom: -20px;
+  animation-name: example;
+  animation-duration: 0.4s;
+}
+@keyframes example {
+  0%   {width:168px;}
+  50%  {width:180px; margin-left:496px; margin-top:51px;}
+  100% {width:168px;}
+}
+.car{
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 255px;
+  animation-name: car;
+  animation-duration: 5s;
+  overflow: hidden;
+}
+@keyframes car {
+  0%   {margin-left:255px;}
+  30%   {margin-left:255px;}
+  100% {margin-left:400px;}
+}
+
 .cabinet{
   width: 488px;
   height: 150px;
@@ -103,30 +130,15 @@
   background:greenyellow;
   transition: color 0.6s;
 }
-.cat-animation{
-  width:168px;
-  margin-left: 510px;
-  margin-top:60px;
-  margin-bottom: -20px;
-  animation-name: example;
-  animation-duration: 0.4s;
-}
-@keyframes example {
-  0%   {width:168px;}
-  50%  {width:180px; margin-left:506px; margin-top:51px;}
-  100% {width:168px;}
-}
+
 .start{
-  width: 350px;
-  height: 350px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  margin-top:-500px;
+  margin-top:-420px;
   border-radius: 100px;
-}
-.start2{
-  display: none;
 }
 .carpet{
   width: 700px;
@@ -138,13 +150,10 @@
   width: 70px;
   margin-left: 25px;
   margin-top:10px;
-  display: none;
-}
-.c-move2{
-  display: block;
   animation-name: c-animation;
   animation-duration: 6s;
   animation-iteration-count: infinite;
+  display: none;
 }
 @keyframes c-animation {
   0%   {}
@@ -162,16 +171,14 @@
   }
   100% {}
 }
+
 .d-animation{
   width: 65px;
   margin-left: 60px;
-  display: none;
-}
-.d-animation2{
-  display: block;
   animation-name: d-animation;
   animation-duration: 6s;
   animation-iteration-count: infinite;
+  display: none;
 }
 @keyframes d-animation {
   0%   {}
@@ -192,13 +199,10 @@
 .f-animation{
   width: 65px; 
   margin-left: 140px;
-  display: none;
-}
-.f-animation2{
-  display: block;
   animation-name: f-animation;
   animation-duration: 6s;
   animation-iteration-count: infinite;
+  display: none;
 }
 @keyframes f-animation {
   0%   {}
@@ -216,8 +220,115 @@
   }
   100% {}
 }
-.target .c-move2{
+.target .c-move{
   margin-left: 60px;
   margin-top: 23px;
   animation-name: x;
+}
+/* bug */
+.bug{
+  width:218px;
+  margin-left: 500px;
+  margin-top:70px;
+  margin-bottom: 0px;
+}
+.bug-animation{
+  width:218px;
+  margin-left: 500px;
+  margin-top:70px;
+  margin-bottom: 0px;
+  animation-name: bug;
+  animation-duration: 0.4s;
+}
+@keyframes bug {
+  0%   {width:218px;}
+  50%  {width:234px; margin-left:495px; margin-top:65px;}
+  100% {width:218px;}
+}
+.f-bug{
+  width: 65px; 
+  margin-left: 140px;
+  animation-name: f-bug;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes f-bug {
+  0%   {}
+  25% {
+    margin-left: 143px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 138px;
+    margin-top: -2px;
+  }
+  75% {
+    margin-left: 144px;
+    margin-top: 1px;
+  }
+  100% {}
+}
+.w-bug{
+  width: 95px;
+  margin-left: 30px;
+  animation-name: w-bug;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes w-bug {
+  0%   {}
+  25% {
+    margin-left: 35px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 32px;
+    margin-top: -2px;
+  }
+  75% {
+    margin-left: 39px;
+    margin-top: 1px;
+  }
+  100% {}
+}
+.b-bug{
+  width: 70px;
+  margin-left: 75px;
+  margin-top:10px;
+  animation-name: b-bug;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes b-bug {
+  0%   {}
+  25% {
+    margin-left: 80px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 70px;
+    margin-top: -3px;
+  }
+  75% {
+    margin-left: 77px;
+    margin-top: 5px;
+  }
+  100% {}
+}
+.target .b-bug{
+  margin-left: 75px;
+  margin-top:10px;
+  animation-name:x;
+}
+.u-word-bug{
+  width:70px;
+  margin-top:-125px;
+}
+.g-word-bug{
+  width:70px;
+  margin-left: 80px;
+  margin-top:-125px;
+}
+#bugApp{
+  display:none;
 }
