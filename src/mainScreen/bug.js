@@ -10,6 +10,7 @@ export default class Bug extends Component{
     this.fSound = new Audio(require("../audio/f-sound.m4a"));
     this.bSound = new Audio(require("../audio/bSound.m4a"));
     this.wSound = new Audio(require("../audio/wSound.m4a"));
+    this.trueBug = new Audio(require("../audio/trueBug.m4a"))
     setTimeout(function(){
       document.getElementById("b-bug").style.display="block";
     }, 100);
@@ -59,7 +60,16 @@ export default class Bug extends Component{
     e.preventDefault();
     var data = e.dataTransfer.getData("text");
     if(data=="b-bug"){
+      this.trueBug.play();
+      this.props.mapMayMoi();
       e.target.appendChild(document.getElementById(data));
+      this.props.upScene();
+      this.setState({
+        append:1
+      })
+      setTimeout(() => {
+        this.props.showNextScene()
+      }, 5000);
     }else{
       // am thanh phat khi chon sai dap an
       this.props.soundWhenSelectWrong();

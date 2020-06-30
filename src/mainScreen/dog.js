@@ -5,48 +5,48 @@ export default class Dog extends Component{
   constructor(props){
     super(props);
     //khởi tạo âm thanh
-    this.bugSound = new Audio(require("../audio/bugSound.m4a"));
+    this.dogSound = new Audio(require("../audio/dogSound.m4a"));
     this.spellBug = new Audio(require("../audio/spellBug.m4a"));
-    this.fSound = new Audio(require("../audio/f-sound.m4a"));
-    this.bSound = new Audio(require("../audio/bSound.m4a"));
-    this.wSound = new Audio(require("../audio/wSound.m4a"));
+    this.hSound = new Audio(require("../audio/hSound.m4a"));
+    this.dSound = new Audio(require("../audio/d-sound.m4a"));
+    this.sSound = new Audio(require("../audio/sSound.m4a"));
+    this.trueDog = new Audio(require("../audio/trueDog.m4a"))
     setTimeout(function(){
-      document.getElementById("b-bug").style.display="block";
+      document.getElementById("d-dog").style.display="block";
     }, 100);
   }
-  //animation cho cat 
+  //animation cho dog 
   handleClick(){
-    console.log("iii")
-    document.getElementById("bug").classList.toggle("bug-animation");
+    document.getElementById("dog").classList.toggle("dog-animation");
     setTimeout(function(){
-      document.getElementById("bug").classList.toggle("bug-animation");
+      document.getElementById("dog").classList.toggle("dog-animation");
     },400);
-    this.bugSound.play();
+    this.dogSound.play();
   }
   //các hàm phát âm
 
-  cSoundPlay(){
-    this.bSound.play();
+  sSoundPlay(){
+    this.sSound.play();
   }
   dSoundPlay(){
-    this.wSound.play();
+    this.dSound.play();
   }
-  fSoundPlay(){
-    this.fSound.play();
+  hSoundPlay(){
+    this.hSound.play();
   }
 
   //các hàm kéo thả
   drag =(e)=> {
     e.dataTransfer.setData("text", e.target.id);
     var data = e.dataTransfer.getData("text");
-    if(data=="b-bug"){
-      this.bSound.play();
+    if(data=="d-dog"){
+      this.dSound.play();
     }else
-    if(data=="w-bug"){
-      this.wSound.play();
+    if(data=="s-dog"){
+      this.sSound.play();
     }else
-    if(data=="f-bug"){
-      this.fSound.play();
+    if(data=="h-dog"){
+      this.hSound.play();
     }
   }
   noAllowDrop=(e)=>{
@@ -58,8 +58,17 @@ export default class Dog extends Component{
   drop =(e)=> {
     e.preventDefault();
     var data = e.dataTransfer.getData("text");
-    if(data=="b-bug"){
+    if(data=="d-dog"){
+      this.trueDog.play();
+      this.props.mapMayMoi();
       e.target.appendChild(document.getElementById(data));
+      this.props.upScene();
+      this.setState({
+        append:1
+      })
+      setTimeout(() => {
+        this.props.showNextScene()
+      }, 5000);
     }else{
       // am thanh phat khi chon sai dap an
       this.props.soundWhenSelectWrong();
@@ -73,24 +82,24 @@ export default class Dog extends Component{
       <div >
         <div >
           <div className="cat-wrapper">
-            <img src={require("../image/bug.png")} className="bug" id="bug" onClick={() => this.handleClick()}></img>
+            <img src={require("../image/dog.png")} className="bug" id="dog" onClick={() => this.handleClick()}></img>
           </div>
           <div className="cabinet">
             <div className="target" id="target" onDrop={this.drop} onDragOver={this.allowDrop}>
             </div>
-            <img src={require("../image/u.png")} className="u-word-bug"></img>
+            <img src={require("../image/o.png")} className="u-word-bug"></img>
             <img src={require("../image/g.png")} className="g-word-bug"></img>
           </div>
           <div className="carpet">
             <Row >
               <Col>
-                <img src={require("../image/w.png")} className="w-bug" id="w-bug" onClick={() => this.dSoundPlay()} onDragStart={this.drag}></img>
+                <img src={require("../image/s.png")} className="s-dog" id="s-dog" onClick={() => this.sSoundPlay()} onDragStart={this.drag}></img>
               </Col>
               <Col>
-                <img src={require("../image/b.png")} className="b-bug" id="b-bug" onClick={()=> this.cSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
+                <img src={require("../image/d.png")} className="d-dog" id="d-dog" onClick={()=> this.dSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
               </Col>
               <Col>
-                <img src={require("../image/f.png")} className="f-bug" id="f-bug" onClick={() =>this.fSoundPlay()} onDragStart={this.drag}></img>
+                <img src={require("../image/h.png")} className="h-dog" id="h-dog" onClick={() =>this.hSoundPlay()} onDragStart={this.drag}></img>
               </Col>
             </Row>
           </div>

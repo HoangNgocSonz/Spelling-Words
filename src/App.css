@@ -332,3 +332,192 @@
 #bugApp{
   display:none;
 }
+
+
+/* dog */
+.dog{
+  width:218px;
+  margin-left: 500px;
+  margin-top:70px;
+  margin-bottom: 0px;
+}
+.dog-animation{
+  width:218px;
+  margin-left: 500px;
+  margin-top:70px;
+  margin-bottom: 0px;
+  animation-name: dog;
+  animation-duration: 0.4s;
+}
+@keyframes dog {
+  0%   {width:218px;}
+  50%  {width:234px; margin-left:495px; margin-top:65px;}
+  100% {width:218px;}
+}
+.s-dog{
+  width: 75px; 
+  margin-left: 40px;
+  animation-name: s-dog;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes s-dog {
+  0%   {}
+  25% {
+    margin-left: 43px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 38px;
+    margin-top: -2px;
+  }
+  75% {
+    margin-left: 44px;
+    margin-top: 1px;
+  }
+  100% {}
+}
+.d-dog{
+  width: 65px;
+  margin-left: 30px;
+  animation-name: d-dog;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes d-dog {
+  0%   {}
+  25% {
+    margin-left: 35px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 32px;
+    margin-top: -2px;
+  }
+  75% {
+    margin-left: 39px;
+    margin-top: 1px;
+  }
+  100% {}
+}
+.h-dog{
+  width: 70px;
+  margin-left: 75px;
+  margin-top:10px;
+  animation-name: h-dog;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes h-dog {
+  0%   {}
+  25% {
+    margin-left: 80px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 70px;
+    margin-top: -3px;
+  }
+  75% {
+    margin-left: 77px;
+    margin-top: 5px;
+  }
+  100% {}
+}
+#dogApp{
+  display:none; 
+}
+/* fox */
+.fox{
+  width:218px;
+  margin-left: 500px;
+  margin-top:70px;
+  margin-bottom: 0px;
+}
+.fox-animation{
+  width:218px;
+  margin-left: 500px;
+  margin-top:70px;
+  margin-bottom: 0px;
+  animation-name: fox;
+  animation-duration: 0.4s;
+}
+@keyframes fox {
+  0%   {width:218px;}
+  50%  {width:234px; margin-left:495px; margin-top:65px;}
+  100% {width:218px;}
+}
+#foxApp{
+  display: none;
+}
+.f-fox{
+  width: 70px;
+  margin-left: 75px;
+  margin-top:10px;
+  animation-name: f-fox;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes f-fox {
+  0%   {}
+  25% {
+    margin-left: 80px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 70px;
+    margin-top: -3px;
+  }
+  75% {
+    margin-left: 77px;
+    margin-top: 5px;
+  }
+  100% {}
+}
+/* hen */
+.hen{
+  width:218px;
+  margin-left: 500px;
+  margin-top:70px;
+  margin-bottom: 0px;
+}
+.hen-animation{
+  width:218px;
+  margin-left: 500px;
+  margin-top:70px;
+  margin-bottom: 0px;
+  animation-name: hen;
+  animation-duration: 0.4s;
+}
+@keyframes hen {
+  0%   {width:218px;}
+  50%  {width:234px; margin-left:495px; margin-top:65px;}
+  100% {width:218px;}
+}
+#henApp{
+  display: none;
+}
+.h-hen{
+  width: 70px;
+  margin-left: 75px;
+  margin-top:10px;
+  animation-name: h-hen;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes h-hen {
+  0%   {}
+  25% {
+    margin-left: 80px;
+    margin-top: 4px;
+  }
+  50% {
+    margin-left: 70px;
+    margin-top: -3px;
+  }
+  75% {
+    margin-left: 77px;
+    margin-top: 5px;
+  }
+  100% {}
+}

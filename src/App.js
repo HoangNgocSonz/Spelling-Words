@@ -3,7 +3,9 @@ import './App.css';
 import {Container,Row,Col} from 'react-bootstrap';
 import Cat from "./mainScreen/cat.js";
 import Bug from "./mainScreen/bug.js";
-import Dog from "./mainScreen/bug.js";
+import Dog from "./mainScreen/dog.js";
+import Fox from "./mainScreen/fox.js";
+import Hen from "./mainScreen/hen.js";
 var wrongSound = 0;
 export default class App extends Component{
   constructor(props){
@@ -18,7 +20,10 @@ export default class App extends Component{
     this.hmm = new Audio(require("./audio/hmm.m4a"));
     this.spellCat = new Audio(require("./audio/spellCat.mp3"));
     this.bugSound = new Audio(require("./audio/bugSound.m4a"));
-    this.spellBug = new Audio(require("./audio/spellBug.m4a"))
+    this.spellBug = new Audio(require("./audio/spellBug.m4a"));
+    this.spellDog = new Audio(require("./audio/spellDog.m4a"));
+    this.spellFox = new Audio(require("./audio/spellFox.m4a"));
+    this.spellHen = new Audio(require("./audio/spellHen.m4a"));
   }
   upScene(){
     this.setState({
@@ -42,6 +47,19 @@ export default class App extends Component{
       this.spellBug.play();
       this.mapMayMoi();
     }
+    if(this.state.scene==3){
+      this.spellDog.play();
+      this.mapMayMoi();
+    }
+    if(this.state.scene==4){
+      this.spellFox.play();
+      this.mapMayMoi();
+    }
+    if(this.state.scene==5){
+      this.spellHen.play();
+      this.mapMayMoi();
+    }
+
   }
   soundWhenSelectWrong(){
     if(wrongSound==0){
@@ -61,7 +79,7 @@ export default class App extends Component{
       //làm hiệu ứng mấp máy môi
       var haiLy = document.querySelector('#haiLy');
       var haiLy2 = document.querySelector('#haiLy2');
-      for (let i = 1; i <= 23; i++) {
+      for (let i = 1; i <= 20; i++) {
         setTimeout(function(){
           haiLy.style.display="block";
           haiLy2.style.display="none";
@@ -83,6 +101,16 @@ export default class App extends Component{
     if(this.state.scene==2){
       this.spellBug.play();
     }
+    if(this.state.scene==3){
+      this.spellDog.play();
+    }
+    if(this.state.scene==4){
+      this.spellFox.play();
+    }
+    if(this.state.scene==5){
+      this.spellHen.play();
+    }
+
     var haiLy = document.querySelector('#haiLy');
     var haiLy2 = document.querySelector('#haiLy2');
     for (let i = 1; i <= 23; i++) {
@@ -137,6 +165,27 @@ export default class App extends Component{
       document.getElementById("bugApp").style.display="block";
       this.startGame();
     }
+    if(this.state.scene==3){
+      wrongSound=0;
+      document.getElementById("bugApp").style.display="none";
+      document.getElementById("dogApp").style.display="block";
+      this.startGame();
+    }
+    if(this.state.scene==4){
+      wrongSound=0;
+      document.getElementById("dogApp").style.display="none";
+      document.getElementById("foxApp").style.display="block";
+      this.startGame();
+    }
+    if(this.state.scene==5){
+      wrongSound=0;
+      document.getElementById("foxApp").style.display="none";
+      document.getElementById("henApp").style.display="block";
+      this.startGame();
+    }
+    if(this.state.scene>=6){
+      window.location.reload(false);
+    }
   }
   render(){
     return (
@@ -165,6 +214,38 @@ export default class App extends Component{
                 mapMayMoi={()=>this.mapMayMoi()}
                 spellCatMain={()=>this.spellCatPlay()}
                 changeHaily={()=>this.changeHaily()}
+                upScene={()=>this.upScene()}
+                showNextScene={()=>this.showNextScene()}
+                />
+            </div>
+            <div id="dogApp">
+              <Dog startGameMain={()=>this.startGame()}
+                soundWhenSelectWrong={()=>this.soundWhenSelectWrong()} 
+                mapMayMoi={()=>this.mapMayMoi()}
+                spellCatMain={()=>this.spellCatPlay()}
+                changeHaily={()=>this.changeHaily()}
+                upScene={()=>this.upScene()}
+                showNextScene={()=>this.showNextScene()}
+                />
+            </div>
+            <div id="foxApp">
+              <Fox startGameMain={()=>this.startGame()}
+                soundWhenSelectWrong={()=>this.soundWhenSelectWrong()} 
+                mapMayMoi={()=>this.mapMayMoi()}
+                spellCatMain={()=>this.spellCatPlay()}
+                changeHaily={()=>this.changeHaily()}
+                upScene={()=>this.upScene()}
+                showNextScene={()=>this.showNextScene()}
+                />
+            </div>
+            <div id="henApp">
+              <Hen startGameMain={()=>this.startGame()}
+                soundWhenSelectWrong={()=>this.soundWhenSelectWrong()} 
+                mapMayMoi={()=>this.mapMayMoi()}
+                spellCatMain={()=>this.spellCatPlay()}
+                changeHaily={()=>this.changeHaily()}
+                upScene={()=>this.upScene()}
+                showNextScene={()=>this.showNextScene()}
                 />
             </div>
           </div>
