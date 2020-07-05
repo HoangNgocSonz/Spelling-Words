@@ -12,8 +12,17 @@ export default class App extends Component{
     super(props);
     //khởi tạo âm thanh
     this.state = {
-      scene:1
+      scene:1,
+      play: true
     }
+    this.audio = new Audio(require("./audio/nhacNen.m4a"));
+    this.audio.addEventListener('ended', function () {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+    this.togglePlay = this.togglePlay.bind(this);
+
+
     this.startScene = new Audio(require("./audio/startScene.mp3"));
     this.opss = new Audio(require("./audio/opss.m4a"));
     this.try_again = new Audio(require("./audio/try_again.m4a"));
@@ -24,7 +33,15 @@ export default class App extends Component{
     this.spellDog = new Audio(require("./audio/spellDog.m4a"));
     this.spellFox = new Audio(require("./audio/spellFox.m4a"));
     this.spellHen = new Audio(require("./audio/spellHen.m4a"));
+    this.nhacNen = new Audio(require("./audio/nhacNen.m4a"))
   }
+  togglePlay() {
+    this.setState({
+        play: !this.state.play
+    });
+    this.state.play ? this.audio.play() : this.audio.pause();
+    this.audio.loop = true;
+}
   upScene(){
     this.setState({
       scene:this.state.scene+=1
@@ -38,6 +55,8 @@ export default class App extends Component{
     console.log("scene2: "+ this.state.scene)
   }
   startGame(){
+    this.togglePlay();
+    // this.nhacNen.play();
     console.log("AppScene:"+ this.state.scene);
     this.startScene.play();
     document.getElementById("background").classList.toggle("background2");
@@ -77,16 +96,14 @@ export default class App extends Component{
   mapMayMoi(){
     setTimeout(function(){
       //làm hiệu ứng mấp máy môi
-      var haiLy = document.querySelector('#haiLy');
-      var haiLy2 = document.querySelector('#haiLy2');
       for (let i = 1; i <= 20; i++) {
         setTimeout(function(){
-          haiLy.style.display="block";
-          haiLy2.style.display="none";
+          document.getElementById("haiLy").style.display="block";
+          document.getElementById("haiLy2").style.display="none";
           if(i<=13){
             setTimeout(function(){
-              haiLy.style.display="none";
-              haiLy2.style.display="block";
+              document.getElementById("haiLy").style.display="none";
+              document.getElementById("haiLy2").style.display="block";
               }, 170*i);
           }
         }, 170*i);
@@ -190,6 +207,7 @@ export default class App extends Component{
   render(){
     return (
       <div>
+        {/* <button onClick={()=>this.togglePlay()}></button> */}
         <div className="background" id="background" style={{ backgroundImage: `url(${require("./image/rsz_background.png")})` }} >
           <div className="background2" id="background2" style={{ backgroundImage: `url(${require("./image/whiteBk.png")})` }}>
             <div className="fade" id="fade">
