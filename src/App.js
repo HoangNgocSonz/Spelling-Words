@@ -207,7 +207,6 @@ export default class App extends Component{
   render(){
     return (
       <div>
-        {/* <button onClick={()=>this.togglePlay()}></button> */}
         <div className="background" id="background" style={{ backgroundImage: `url(${require("./image/rsz_background.png")})` }} >
           <div className="background2" id="background2" style={{ backgroundImage: `url(${require("./image/whiteBk.png")})` }}>
             <div className="fade" id="fade">
