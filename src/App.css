@@ -20,6 +20,16 @@
   width: 50px;
   margin-top:-10px;
   margin-left: 15px;
+  animation-name: loa;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes loa {
+  0%   {}
+  50% {
+    width: 53px;
+  }
+  100% {}
 }
 .loa2{
   width: 50px;
