@@ -136,7 +136,7 @@ export default class Cat extends Component{
             </Row>
           </div>
         </div>
-        <img className="start" id="start" src={require("../image/start.png")} onClick={()=> this.startGame()}></img>
+        <img className="start" id="start" src={require("../image/starty.png")} onClick={()=> this.startGame()}></img>
       </div>
     );
   }

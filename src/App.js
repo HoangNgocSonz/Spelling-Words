@@ -28,7 +28,6 @@ export default class App extends Component{
     this.try_again = new Audio(require("./audio/try_again.m4a"));
     this.hmm = new Audio(require("./audio/hmm.m4a"));
     this.spellCat = new Audio(require(`./${this.state.data}/audio/scene1/spellAnimal.m4a`));
-    // this.bugSound = new Audio(require("./audio/bugSound.m4a"));
     this.spellBug = new Audio(require(`./${this.state.data}/audio/scene2/spellAnimal.m4a`));
     this.spellDog = new Audio(require(`./${this.state.data}/audio/scene3/spellAnimal.m4a`));
     this.spellFox = new Audio(require("./audio/spellFox.m4a"));

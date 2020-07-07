@@ -132,13 +132,13 @@
 }
 
 .start{
-  width: 200px;
-  height: 200px;
+  width: 1207px;
+  height: 682px;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  margin-top:-420px;
-  border-radius: 100px;
+  margin-top:-620px;
+  /* border-radius: 100px; */
 }
 .carpet{
   width: 700px;
