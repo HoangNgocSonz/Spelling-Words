@@ -5,19 +5,18 @@ export default class Bug extends Component{
   constructor(props){
     super(props);
     //khởi tạo âm thanh
-    this.bugSound = new Audio(require("../audio/bugSound.m4a"));
-    this.spellBug = new Audio(require("../audio/spellBug.m4a"));
-    this.fSound = new Audio(require("../audio/f-sound.m4a"));
-    this.bSound = new Audio(require("../audio/bSound.m4a"));
-    this.wSound = new Audio(require("../audio/wSound.m4a"));
-    this.trueBug = new Audio(require("../audio/trueBug.m4a"))
+    this.bugSound = new Audio(require(`../${this.props.data}/audio/scene2/animal.m4a`));
+    this.spellBug = new Audio(require(`../${this.props.data}/audio/scene2/spellAnimal.m4a`));
+    this.fSound = new Audio(require(`../${this.props.data}/audio/scene2/selection1.m4a`));
+    this.bSound = new Audio(require(`../${this.props.data}/audio/scene2/selection2.m4a`));
+    this.wSound = new Audio(require(`../${this.props.data}/audio/scene2/selection3.m4a`));
+    this.trueBug = new Audio(require(`../${this.props.data}/audio/scene2/animalTrue.m4a`))
     setTimeout(function(){
       document.getElementById("b-bug").style.display="block";
     }, 100);
   }
   //animation cho cat 
   handleClick(){
-    console.log("iii")
     document.getElementById("bug").classList.toggle("bug-animation");
     setTimeout(function(){
       document.getElementById("bug").classList.toggle("bug-animation");
@@ -25,7 +24,6 @@ export default class Bug extends Component{
     this.bugSound.play();
   }
   //các hàm phát âm
-
   cSoundPlay(){
     this.bSound.play();
   }
@@ -35,7 +33,6 @@ export default class Bug extends Component{
   fSoundPlay(){
     this.fSound.play();
   }
-
   //các hàm kéo thả
   drag =(e)=> {
     e.dataTransfer.setData("text", e.target.id);
@@ -83,24 +80,24 @@ export default class Bug extends Component{
       <div >
         <div >
           <div className="cat-wrapper">
-            <img src={require("../image/bug.png")} className="bug" id="bug" onClick={() => this.handleClick()}></img>
+            <img src={require(`../${this.props.data}/image/scene2/animal.png`)} className="bug" id="bug" onClick={() => this.handleClick()}></img>
           </div>
           <div className="cabinet">
             <div className="target" id="target" onDrop={this.drop} onDragOver={this.allowDrop}>
             </div>
-            <img src={require("../image/u.png")} className="u-word-bug"></img>
-            <img src={require("../image/g.png")} className="g-word-bug"></img>
+            <img src={require(`../${this.props.data}/image/scene2/suggest1.png`)} className="u-word-bug"></img>
+            <img src={require(`../${this.props.data}/image/scene2/suggest2.png`)} className="g-word-bug"></img>
           </div>
           <div className="carpet">
             <Row >
               <Col>
-                <img src={require("../image/w.png")} className="w-bug" id="w-bug" onClick={() => this.dSoundPlay()} onDragStart={this.drag}></img>
+                <img src={require(`../${this.props.data}/image/scene2/selection2.png`)} className="w-bug" id="w-bug" onClick={() => this.dSoundPlay()} onDragStart={this.drag}></img>
               </Col>
               <Col>
-                <img src={require("../image/b.png")} className="b-bug" id="b-bug" onClick={()=> this.cSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
+                <img src={require(`../${this.props.data}/image/scene2/selection1.png`)} className="b-bug" id="b-bug" onClick={()=> this.cSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
               </Col>
               <Col>
-                <img src={require("../image/f.png")} className="f-bug" id="f-bug" onClick={() =>this.fSoundPlay()} onDragStart={this.drag}></img>
+                <img src={require(`../${this.props.data}/image/scene2/selection3.png`)} className="f-bug" id="f-bug" onClick={() =>this.fSoundPlay()} onDragStart={this.drag}></img>
               </Col>
             </Row>
           </div>

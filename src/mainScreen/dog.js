@@ -5,12 +5,11 @@ export default class Dog extends Component{
   constructor(props){
     super(props);
     //khởi tạo âm thanh
-    this.dogSound = new Audio(require("../audio/dogSound.m4a"));
-    this.spellBug = new Audio(require("../audio/spellBug.m4a"));
-    this.hSound = new Audio(require("../audio/hSound.m4a"));
-    this.dSound = new Audio(require("../audio/d-sound.m4a"));
-    this.sSound = new Audio(require("../audio/sSound.m4a"));
-    this.trueDog = new Audio(require("../audio/trueDog.m4a"))
+    this.dogSound = new Audio(require(`../${this.props.data}/audio/scene3/animal.m4a`));
+    this.hSound = new Audio(require(`../${this.props.data}/audio/scene3/selection3.m4a`));
+    this.dSound = new Audio(require(`../${this.props.data}/audio/scene3/selection1.m4a`));
+    this.sSound = new Audio(require(`../${this.props.data}/audio/scene3/selection2.m4a`));
+    this.trueDog = new Audio(require(`../${this.props.data}/audio/scene3/animalTrue.m4a`))
     setTimeout(function(){
       document.getElementById("d-dog").style.display="block";
     }, 100);
@@ -82,24 +81,24 @@ export default class Dog extends Component{
       <div >
         <div >
           <div className="cat-wrapper">
-            <img src={require("../image/dog.png")} className="bug" id="dog" onClick={() => this.handleClick()}></img>
+            <img src={require(`../${this.props.data}/image/scene3/animal.png`)} className="bug" id="dog" onClick={() => this.handleClick()}></img>
           </div>
           <div className="cabinet">
             <div className="target" id="target" onDrop={this.drop} onDragOver={this.allowDrop}>
             </div>
-            <img src={require("../image/o.png")} className="u-word-bug"></img>
-            <img src={require("../image/g.png")} className="g-word-bug"></img>
+            <img src={require(`../${this.props.data}/image/scene3/suggest1.png`)} className="u-word-bug"></img>
+            <img src={require(`../${this.props.data}/image/scene3/suggest2.png`)} className="g-word-bug"></img>
           </div>
           <div className="carpet">
             <Row >
               <Col>
-                <img src={require("../image/s.png")} className="s-dog" id="s-dog" onClick={() => this.sSoundPlay()} onDragStart={this.drag}></img>
+                <img src={require(`../${this.props.data}/image/scene3/selection2.png`)} className="s-dog" id="s-dog" onClick={() => this.sSoundPlay()} onDragStart={this.drag}></img>
               </Col>
               <Col>
-                <img src={require("../image/d.png")} className="d-dog" id="d-dog" onClick={()=> this.dSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
+                <img src={require(`../${this.props.data}/image/scene3/selection1.png`)} className="d-dog" id="d-dog" onClick={()=> this.dSoundPlay()} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}></img>
               </Col>
               <Col>
-                <img src={require("../image/h.png")} className="h-dog" id="h-dog" onClick={() =>this.hSoundPlay()} onDragStart={this.drag}></img>
+                <img src={require(`../${this.props.data}/image/scene3/selection3.png`)} className="h-dog" id="h-dog" onClick={() =>this.hSoundPlay()} onDragStart={this.drag}></img>
               </Col>
             </Row>
           </div>

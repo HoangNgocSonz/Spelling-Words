@@ -6,6 +6,7 @@ import Bug from "./mainScreen/bug.js";
 import Dog from "./mainScreen/dog.js";
 import Fox from "./mainScreen/fox.js";
 import Hen from "./mainScreen/hen.js";
+
 var wrongSound = 0;
 export default class App extends Component{
   constructor(props){
@@ -13,7 +14,8 @@ export default class App extends Component{
     //khởi tạo âm thanh
     this.state = {
       scene:1,
-      play: true
+      play: true,
+      data:"data2"
     }
     this.audio = new Audio(require("./audio/nhacNen.m4a"));
     this.audio.addEventListener('ended', function () {
@@ -21,16 +23,14 @@ export default class App extends Component{
       this.play();
     }, false);
     this.togglePlay = this.togglePlay.bind(this);
-
-
     this.startScene = new Audio(require("./audio/startScene.mp3"));
     this.opss = new Audio(require("./audio/opss.m4a"));
     this.try_again = new Audio(require("./audio/try_again.m4a"));
     this.hmm = new Audio(require("./audio/hmm.m4a"));
-    this.spellCat = new Audio(require("./audio/spellCat.mp3"));
-    this.bugSound = new Audio(require("./audio/bugSound.m4a"));
-    this.spellBug = new Audio(require("./audio/spellBug.m4a"));
-    this.spellDog = new Audio(require("./audio/spellDog.m4a"));
+    this.spellCat = new Audio(require(`./${this.state.data}/audio/scene1/spellAnimal.m4a`));
+    // this.bugSound = new Audio(require("./audio/bugSound.m4a"));
+    this.spellBug = new Audio(require(`./${this.state.data}/audio/scene2/spellAnimal.m4a`));
+    this.spellDog = new Audio(require(`./${this.state.data}/audio/scene3/spellAnimal.m4a`));
     this.spellFox = new Audio(require("./audio/spellFox.m4a"));
     this.spellHen = new Audio(require("./audio/spellHen.m4a"));
     this.nhacNen = new Audio(require("./audio/nhacNen.m4a"))
@@ -207,6 +207,7 @@ export default class App extends Component{
   render(){
     return (
       <div>
+        <button onClick={()=>this.togglePlay()}></button>
         <div className="background" id="background" style={{ backgroundImage: `url(${require("./image/rsz_background.png")})` }} >
           <div className="background2" id="background2" style={{ backgroundImage: `url(${require("./image/whiteBk.png")})` }}>
             <div className="fade" id="fade">
@@ -223,6 +224,7 @@ export default class App extends Component{
                 changeHaily={()=>this.changeHaily()}
                 upScene={()=>this.upScene()}
                 showNextScene={()=>this.showNextScene()}
+                data={this.state.data}
                 />
             </div>
             <div id="bugApp">
@@ -233,6 +235,7 @@ export default class App extends Component{
                 changeHaily={()=>this.changeHaily()}
                 upScene={()=>this.upScene()}
                 showNextScene={()=>this.showNextScene()}
+                data={this.state.data}
                 />
             </div>
             <div id="dogApp">
@@ -243,6 +246,7 @@ export default class App extends Component{
                 changeHaily={()=>this.changeHaily()}
                 upScene={()=>this.upScene()}
                 showNextScene={()=>this.showNextScene()}
+                data={this.state.data}
                 />
             </div>
             <div id="foxApp">
