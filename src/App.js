@@ -8,6 +8,8 @@ import Fox from "./mainScreen/fox.js";
 import Hen from "./mainScreen/hen.js";
 
 var wrongSound = 0;
+var nhac=true;
+var start = false;
 export default class App extends Component{
   constructor(props){
     super(props);
@@ -15,7 +17,7 @@ export default class App extends Component{
     this.state = {
       scene:1,
       play: true,
-      data:"data2"
+      data:"data1"
     }
     this.audio = new Audio(require("./audio/nhacNen.m4a"));
     this.audio.addEventListener('ended', function () {
@@ -35,6 +37,18 @@ export default class App extends Component{
     this.nhacNen = new Audio(require("./audio/nhacNen.m4a"))
   }
   togglePlay() {
+    if(start==true){
+      if(nhac){
+        nhac=false;
+        document.getElementById("loa").style.display="none";
+        document.getElementById("loa2").style.display="block";
+      }else{
+        document.getElementById("loa2").style.display="none";
+        document.getElementById("loa").style.display="block";
+        nhac=true;
+      }
+    }
+    start=true;
     this.setState({
         play: !this.state.play
     });
@@ -206,8 +220,8 @@ export default class App extends Component{
   render(){
     return (
       <div>
-        <button onClick={()=>this.togglePlay()}></button>
         <div className="background" id="background" style={{ backgroundImage: `url(${require("./image/rsz_background.png")})` }} >
+
           <div className="background2" id="background2" style={{ backgroundImage: `url(${require("./image/whiteBk.png")})` }}>
             <div className="fade" id="fade">
               <img src={require('./image/spell3.png')} className="haiLy" id="haiLy" onClick={()=>this.spell()}/>
@@ -268,6 +282,8 @@ export default class App extends Component{
                 showNextScene={()=>this.showNextScene()}
                 />
             </div>
+            <img src={require('./image/loa1.png')} className="loa" id="loa" onClick={()=>this.togglePlay()}/>
+            <img src={require('./image/loa2.png')} className="loa2" id="loa2" onClick={()=>this.togglePlay()}/>
           </div>
         </div>
       </div>

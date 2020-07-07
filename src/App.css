@@ -16,6 +16,18 @@
   margin-top:20px;
   box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
 }
+.loa{
+  width: 50px;
+  margin-top:-10px;
+  margin-left: 15px;
+}
+.loa2{
+  width: 50px;
+  margin-top:-10px;
+  margin-left: 15px;
+  display: none;
+}
+
 .fade{
   opacity:0.0;
 }
